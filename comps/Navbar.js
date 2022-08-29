@@ -15,14 +15,14 @@ export default function Navbar() {
         </li>
 
         <li>
-          <Link href="/products">
-            <button className="btn-logo">Products</button>
+          <Link href="/ships">
+            <button className="btn-logo">Ships</button>
           </Link>
         </li>
 
         <li>
-          <Link href="/">
-            <button className="btn-logo">My Cart</button>
+          <Link href="/support">
+            <button className="btn-logo">Support</button>
           </Link>
         </li>
       
