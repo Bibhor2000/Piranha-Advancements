@@ -2,25 +2,95 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useContext } from 'react';
 import { UserContext } from '../lib/context';
 import Image from 'next/image'
+import styles from '../styles/support.module.css'
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+import Stats from 'three/examples/jsm/libs/stats.module'
 
 
 export default function Home() {
 
-  const { user, username } = useContext(UserContext)
+  const scene = new THREE.Scene()
+scene.add(new THREE.AxesHelper(5))
+
+const light = new THREE.PointLight()
+light.position.set(0.8, 1.4, 1.0)
+scene.add(light)
+
+const ambientLight = new THREE.AmbientLight()
+scene.add(ambientLight)
+
+const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+)
+camera.position.set(0.8, 1.4, 1.0)
+
+const renderer = new THREE.WebGLRenderer()
+renderer.setSize(window.innerWidth, window.innerHeight)
+document.body.appendChild(renderer.domElement)
+
+const controls = new OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
+controls.target.set(0, 1, 0)
+
+//const material = new THREE.MeshNormalMaterial()
+
+const fbxLoader = new FBXLoader()
+fbxLoader.load(
+    "/Piranha.fbx",
+    (object) => {
+        // object.traverse(function (child) {
+        //     if ((child as THREE.Mesh).isMesh) {
+        //         // (child as THREE.Mesh).material = material
+        //         if ((child as THREE.Mesh).material) {
+        //             ((child as THREE.Mesh).material as THREE.MeshBasicMaterial).transparent = false
+        //         }
+        //     }
+        // })
+        // object.scale.set(.01, .01, .01)
+        scene.add(object)
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    (error) => {
+        console.log(error)
+    }
+)
+
+window.addEventListener('resize', onWindowResize, false)
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    render()
+}
+
+const stats = Stats()
+document.body.appendChild(stats.dom)
+
+function animate() {
+    requestAnimationFrame(animate)
+
+    controls.update()
+
+    render()
+
+    stats.update()
+}
+
+function render() {
+    renderer.render(scene, camera)
+}
+
+animate()
 
 
   return (
-    <body>
-
-      <motion.svg
-      viewBox="0 0 912 912"
-      animate={{ originX: 1, originY: 1, originZ: 1, rotate: [360, 0, -360], }}
-      transition={{ duration: 2, repeat: Infinity }}>
-    <path fill="#FDD74A" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z" class="">
-    </path>
-      </motion.svg>
-      
-      
-    </body>
+    <p className={styles.p}>This page is still in development</p>
   )
 }

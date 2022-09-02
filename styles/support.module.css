@@ -1,0 +1,9 @@
+.p {
+    z-index: 1;
+    position: relative;
+    color: #DF3B3B;
+    margin-top: 10px;
+    margin-left: 600px;
+    font-family: fantasy;
+    font-size: 20px
+  }

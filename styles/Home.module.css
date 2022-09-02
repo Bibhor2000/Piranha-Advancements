@@ -2,9 +2,34 @@
   z-index: 0;
 }
 
-.p {
+.p1 {
   z-index: 1;
   position: relative;
+  color: yellow;
+  margin-top: 260px;
+  margin-left: 5px;
+  font-family: fantasy;
+  font-size: 50px
+}
+
+.p2 {
+  z-index: 1;
+  position: relative;
+  color: yellow;
+  margin-top: -40px;
+  margin-left: 5px;
+  font-family: fantasy;
+  font-size: 30px
+}
+
+.p3 {
+  z-index: 1;
+  position: relative;
+  color: #DF3B3B;
+  margin-top: 90px;
+  margin-left: 670px;
+  font-family: fantasy;
+  font-size: 125px
 }
 
 .h1 {
@@ -17,3 +42,24 @@
   margin-top: 50px;
 }
 
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  margin-top: 723px;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(185% + 1.3px);
+  height: 500px;
+}
+
+.wave .shape-fill {
+  fill: #DF3B3B;
+}

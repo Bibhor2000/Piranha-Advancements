@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { useContext } from 'react';
+import { UserContext } from '../lib/context';
 
 // Top navbar
 export default function Navbar() {
-  const user = null;
-  const username = null;
+  const { user, username } = useContext(UserContext) //from the context.js
 
   return (
     <nav className="navbar">
@@ -25,13 +26,12 @@ export default function Navbar() {
             <button className="btn-logo">Support</button>
           </Link>
         </li>
-      
-          <li>
+
+        <li>
             <Link href="/enter">
-              <button className="btn-blue">Log in</button>
+              <button className="btn-red">Log in</button>
             </Link>
           </li>
-      
       </ul>
     </nav>
   );
