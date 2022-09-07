@@ -12,7 +12,9 @@
         display: flex;
         width: 350px;
         height: 400px;
-        background-color: yellow;
+        margin-top: 200px;
+        margin-left: 65px;
+        background-color: gold;
         z-index: 1;
         position: relative;
       }
@@ -61,7 +63,69 @@
         position: relative;
       }
 
-      .h5 {
+      .h2 {
+        z-index: 2;
+        position: relative;
+        color: gold;
+        margin-left: 670px;
+        font-family: fantasy;
+        font-size: 40px
+      }
+
+      .p1 {
         z-index: 1;
         position: relative;
+        color: #DF3B3B;
+        margin-top: 10px;
+        margin-left: 90px;
+        font-family: fantasy;
+        font-size: 30px;
+      }
+
+      .p2 {
+        z-index: 1;
+        position: relative;
+        color: #DF3B3B;
+        margin-top: 10px;
+        margin-left: 64px;
+        font-family: fantasy;
+        font-size: 30px;
+      }
+
+      .p3 {
+        z-index: 1;
+        position: relative;
+        color: #DF3B3B;
+        margin-left: 620px;
+        margin-top: 170px;
+        font-family: fantasy;
+        font-size: 90px;
+      }
+
+      .video {
+        z-index: 1;
+        margin-left: -186px;
+        position: relative;
+      }
+
+      .wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+        margin-top: 723px;
+      }
+      
+      .wave svg {
+        position: relative;
+        display: block;
+        width: calc(185% + 1.3px);
+        height: 500px;
+      }
+      
+      .wave .shape-fill {
+        fill: #DF3B3B;
       }

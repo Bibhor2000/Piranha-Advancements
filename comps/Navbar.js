@@ -17,19 +17,19 @@ export default function Navbar() {
 
         <li>
           <Link href="/ships">
-            <button className="btn-logo">Ships</button>
+            <button className="btn-logo">Heritage Ships</button>
           </Link>
         </li>
 
         <li>
-          <Link href="/support">
-            <button className="btn-logo">Support</button>
+          <Link href="/display">
+            <button className="btn-logo">FX400 Display</button>
           </Link>
         </li>
 
         <li>
-            <Link href="/enter">
-              <button className="btn-red">Log in</button>
+            <Link href="/login">
+              <button className="btn-red">Log in with Google</button>
             </Link>
           </li>
       </ul>

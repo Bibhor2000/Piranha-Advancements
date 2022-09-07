@@ -29,12 +29,12 @@ export default function Home() {
 
       <section>
         <p className={styles.p1}>
-          What is Piranha?
+          What is Piranha Advancements?
         </p>
 
         <p className={styles.p2}>
           We are an anti-gravity racing team, based in Brazil.<br/>
-          We design our ships to be the fastest in the league.<br/>
+          We design our ships to be the fastest in the anti-gravity racing league.<br/>
           When we design our ships we strive for nothing short of perfection.
         </p>
 
